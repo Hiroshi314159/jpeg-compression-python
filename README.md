@@ -1,23 +1,43 @@
-# JPEG Compression in Python
+# JPEG-like Image Compression and Digital Transmission Simulator
 
-This project implements a simplified JPEG compression and decompression pipeline in Python.
+This project implements a simplified image compression and digital transmission pipeline in Python.
 
-The goal is to study the main steps involved in image compression, including color-space conversion, chroma subsampling, block processing, DCT, quantization, zig-zag scanning, run-length encoding, Huffman coding, image reconstruction, and quality evaluation.
+The first stage is based on a JPEG-like compression algorithm, including color space conversion, chroma subsampling, block-based DCT, quantization, zig-zag scanning, run-length encoding and Huffman coding.
+
+The second stage simulates the digital transmission of image data over a noisy communication channel using BPSK modulation and an AWGN channel model.
+
+The system performance is evaluated using compression ratio, Bit Error Rate (BER), Peak Signal-to-Noise Ratio (PSNR) and Structural Similarity Index (SSIM).
+
+---
+
+## Motivation
+
+Digital images often require a large number of bits to be stored or transmitted. In bandwidth-limited communication systems, such as satellite links, drones, IoT cameras and remote sensing devices, image compression and robust transmission techniques are essential.
+
+This project explores the trade-off between compression efficiency, channel noise, bit errors and reconstructed image quality.
+
+---
 
 ## Features
 
-- RGB to YCbCr conversion
-- 4:2:0 chroma subsampling
-- 8x8 block division
+- JPEG-like image compression
+- RGB to YCbCr color space conversion
+- Chroma subsampling
+- 8x8 block processing
 - Discrete Cosine Transform (DCT)
-- Quantization using different quantization matrices
-- Differential Pulse Code Modulation (DPCM) for DC coefficients
+- Quantization
 - Zig-zag scanning
-- Zero run-length encoding
-- Huffman coding and decoding
-- JPEG-like decompression
-- PSNR and SSIM quality evaluation
-- Compression ratio and bits-per-pixel analysis
+- Run-Length Encoding (RLE)
+- Huffman coding
+- JPEG-like image reconstruction
+- BPSK digital modulation
+- AWGN channel simulation
+- BPSK demodulation
+- Image transmission from pixel bitstream
+- BER, PSNR and SSIM analysis
+- Automatic result saving
+
+---
 
 ## Project Structure
 
@@ -25,58 +45,13 @@ The goal is to study the main steps involved in image compression, including col
 jpeg-compression-python/
 ├── data/
 │   └── input/
-│       └── sample_image.png
 ├── results/
-│   └── images/
-│       └── sample_original.png
+│   ├── images/
+│   ├── plots/
+│   └── tables/
 ├── jpeg_compression.ipynb
 ├── huffman.py
 ├── utils.py
+├── README.md
 ├── requirements.txt
-├── .gitignore
-└── README.md
-```
-
-## Installation
-
-Clone the repository and install the dependencies:
-
-```bash
-git clone https://github.com/YOUR-USERNAME/jpeg-compression-python.git
-cd jpeg-compression-python
-pip install -r requirements.txt
-```
-
-## How to Run
-
-Open the notebook:
-
-```bash
-jupyter notebook jpeg_compression.ipynb
-```
-
-Then run the cells in order. The notebook uses a relative image path:
-
-```python
-image_path = Path("data/input/sample_image.png")
-```
-
-You can replace `sample_image.png` with another image as long as it is placed inside `data/input/`.
-
-## Metrics
-
-The project evaluates compression and reconstruction quality using:
-
-- **Compression ratio**: ratio between original image size and compressed bitstream size.
-- **Bits per pixel (BPP)**: number of compressed bits required per image pixel.
-- **PSNR**: Peak Signal-to-Noise Ratio. Higher values indicate lower reconstruction error.
-- **SSIM**: Structural Similarity Index. Values closer to 1 indicate higher structural similarity.
-
-## Suggested Portfolio Description
-
-**JPEG Compression Simulator in Python**  
-Implemented a simplified JPEG compression and decompression pipeline using Python, including RGB-to-YCbCr conversion, 4:2:0 chroma subsampling, DCT, quantization, DPCM, zig-zag scanning, run-length encoding, Huffman coding, and image quality evaluation using PSNR and SSIM.
-
-## Author
-
-Vinícius Shinzato
+└── .gitignore
