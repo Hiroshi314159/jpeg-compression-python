@@ -370,7 +370,7 @@ This project combines concepts from different areas of electrical engineering, t
 
 ## Author
 
-Vinícius Shinzato
+Vinicius Hiroshi B Shinzato
 
 Telecommunications Engineering Student
 University of Campinas - Unicamp
